@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: meltano
+      POSTGRES_PASSWORD: meltano
+      POSTGRES_DB: warehouse
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

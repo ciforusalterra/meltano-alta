@@ -15,4 +15,12 @@ plugins:
     - commits.commit.author.date
     - commits.commit.author.name
     - commits.commit.message.*
-    - '!*.*'
+    - '*.*'
+  loaders:
+  - name: target-postgres
+    variant: datamill-co
+    pip_url: singer-target-postgres
+    config:
+      postgres_username: meltano
+      postgres_database: warehouse
+      postgres_schema: public
